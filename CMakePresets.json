@@ -1,0 +1,78 @@
+{
+  "version": 10,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "hidden": true,
+      "generator": "Ninja",
+      "cacheVariables": {
+        "BUILD_TESTING": "ON"
+      }
+    },
+    {
+      "name": "with_qt",
+      "hidden": true,
+      "cacheVariables": {
+        "BUILD_GUI": "ON",
+        "CMAKE_PREFIX_PATH": "C:\\Qt\\6.8.3\\msvc2022_64"
+      }
+    },
+    {
+      "name": "debug",
+      "inherits": ["default"],
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "release",
+      "inherits": ["default"],
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "debug-qt",
+      "inherits": ["debug", "with_qt"]
+    },
+    {
+      "name": "release-qt",
+      "inherits": ["release", "with_qt"]
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "debug-qt",
+      "configurePreset": "debug-qt"
+    },
+    {
+      "name": "release-qt",
+      "configurePreset": "release-qt"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
+    }
+  ]
+}
