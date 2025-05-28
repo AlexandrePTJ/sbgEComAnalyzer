@@ -53,6 +53,7 @@ These tasks are not required but may demonstrate advanced or front-end developme
 - C++20 or later
 - CMake ≥ 3.25
 - Qt (for optional QML visualization, may need to update `CMakePresets.json` to fit your Qt installation)
+- [sbgECom](https://developer.sbg-systems.com/sbgECom/5.2/) library documentation
 
 ### Build Instructions
 
